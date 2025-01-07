@@ -1,21 +1,19 @@
 #include <iostream>
 using namespace std;
 
-int main(){
+int main()
+{
     int n;
-    cout<<"Enter n: ";
-    cin>>n;
-    int count=1;
-    for(int i=0;i<n;i++){
-        for(int space = 0; space<n-i-1;space++){
-            cout<<" ";
-        }
-        for(int j=0;j<count;j++){
-            cout<<"*";
-        }
+    cout << "Enter n: ";
+    cin >> n;
 
-        count=count+2;
-        cout<<endl;
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= n - i + 1; j++)
+        {
+            cout << j;
+        }
+        cout << endl;
     }
     return 0;
 }
