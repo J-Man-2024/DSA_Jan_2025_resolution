@@ -16,12 +16,9 @@ void insertionSort(int arr[], int n)
     {
         int j = i - 1;
         int key = arr[i];
-        while (j >= 0 && key < arr[j])
+        while (j >= 0 && arr[j] > key)
         {
-            if (key < arr[j])
-            {
-                arr[j + 1] = arr[j];
-            }
+            arr[j + 1] = arr[j];
             j--;
         }
         arr[j + 1] = key;
