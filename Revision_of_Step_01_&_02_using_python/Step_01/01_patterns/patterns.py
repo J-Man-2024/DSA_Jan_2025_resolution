@@ -61,10 +61,26 @@ def pattern06Concise(n):
         print("".join(map(str, range(1, i+1))))
 
 
+def pattern07Verbose(n):
+    count = 1
+    for i in range(1, n+1):
+        for _ in range(n-i):
+            print(" ", end="")
+        for _ in range(count):
+            print("*", end="")
+        count = count+2
+        print()
+
+
+def pattern07Concise(n):
+    for i in range(n):
+        print(" " * (n - i - 1) + "*" * (2 * i + 1))
+
+
 def main():
     # n = int(input("Enter n: "))
     n = 5
-    pattern06Concise(n)
+    pattern07Concise(n)
 
 
 if __name__ == "__main__":
