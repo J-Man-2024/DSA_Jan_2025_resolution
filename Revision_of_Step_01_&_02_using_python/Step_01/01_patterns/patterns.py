@@ -77,10 +77,21 @@ def pattern07Concise(n):
         print(" " * (n - i - 1) + "*" * (2 * i + 1))
 
 
+def pattern08Verbose(n):
+    count = n*2-1
+    for i in range(1, n+1):
+        for _ in range(1, i):
+            print(" ", end="")
+        for _ in range(count):
+            print("*", end="")
+        count -= 2
+        print()
+
+
 def main():
     # n = int(input("Enter n: "))
     n = 5
-    pattern07Concise(n)
+    pattern08Verbose(n)
 
 
 if __name__ == "__main__":
