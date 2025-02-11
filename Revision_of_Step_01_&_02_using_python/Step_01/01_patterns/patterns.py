@@ -88,10 +88,15 @@ def pattern08Verbose(n):
         print()
 
 
+def pattern08Concise(n):
+    for i in range(n):
+        print(" "*i + "*"*(2*(n-i)-1))
+
+
 def main():
     # n = int(input("Enter n: "))
     n = 5
-    pattern08Verbose(n)
+    pattern08Concise(n)
 
 
 if __name__ == "__main__":
