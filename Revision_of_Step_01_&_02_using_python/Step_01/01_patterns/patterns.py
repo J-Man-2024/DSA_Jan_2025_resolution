@@ -93,10 +93,17 @@ def pattern08Concise(n):
         print(" "*i + "*"*(2*(n-i)-1))
 
 
+def pattern09(n):
+    for i in range(n):
+        print(" "*(n-i-1)+"*"*(2*i+1))
+    for i in range(n):
+        print(" "*i+"*"*(2*(n-i)-1))
+
+
 def main():
     # n = int(input("Enter n: "))
     n = 5
-    pattern08Concise(n)
+    pattern09(n)
 
 
 if __name__ == "__main__":
