@@ -106,10 +106,31 @@ def pattern10(n):
         print("*"*stars)
 
 
+def pattern11Verbose(n):
+    for i in range(1, n+1):
+        for j in range(1, i+1):
+            if (i % 2 != 0 and j % 2 != 0) or (i % 2 == 0 and j % 2 == 0):
+                print("1 ", end="")
+            else:
+                print("0 ", end="")
+        print()
+
+
+def pattern11ConciseAlt(n):
+    for i in range(1, n+1):
+        print(" ".join("1" if ((i % 2 != 0 and j % 2 != 0) or (i %
+              2 == 0 and j % 2 == 0))else "0" for j in range(1, i+1)))
+
+
+def pattern11Concise(n):
+    for i in range(1, n+1):
+        print(" ".join("1" if (i % 2 == j % 2) else "0" for j in range(1, i+1)))
+
+
 def main():
     # n = int(input("Enter n: "))
     n = 5
-    pattern10(n)
+    pattern11Concise(n)
 
 
 if __name__ == "__main__":
