@@ -100,10 +100,16 @@ def pattern09(n):
         print(" "*i+"*"*(2*(n-i)-1))
 
 
+def pattern10(n):
+    for i in range(1, n*2):
+        stars = 2*n-i if n < i else i
+        print("*"*stars)
+
+
 def main():
     # n = int(input("Enter n: "))
     n = 5
-    pattern09(n)
+    pattern10(n)
 
 
 if __name__ == "__main__":
