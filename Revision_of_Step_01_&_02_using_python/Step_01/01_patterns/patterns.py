@@ -127,10 +127,32 @@ def pattern11Concise(n):
         print(" ".join("1" if (i % 2 == j % 2) else "0" for j in range(1, i+1)))
 
 
+def pattern12(n):
+    for i in range(1, n+1):
+        print("".join(map(str, range(1, i + 1))) + " " *
+              (2 * (n - i)) + "".join(map(str, range(i, 0, -1))))
+
+
+def pattern13Verbose(n):
+    count = 1
+    for i in range(1, n+1):
+        for _ in range(1, i+1):
+            print(count, end=" ")
+            count += 1
+        print()
+
+
+def pattern13Concise(n):
+    count = 1
+    for i in range(1, n+1):
+        print(" ".join(str(count + j) for j in range(i)))
+        count += i
+
+
 def main():
     # n = int(input("Enter n: "))
     n = 5
-    pattern11Concise(n)
+    pattern13Concise(n)
 
 
 if __name__ == "__main__":
