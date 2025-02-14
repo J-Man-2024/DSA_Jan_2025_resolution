@@ -164,10 +164,21 @@ def pattern16(n):
         print(chr(65+i-1)*i)
 
 
+def pattern17(n):
+    for i in range(1, n+1):
+        print(" "*(n-i) + "".join(chr(c) for c in range(65, 65+i)) +
+              "".join(chr(c) for c in range(64+i-1, 64, -1)))
+
+
+def pattern18(n):
+    for i in range(1, n+1):
+        print(" ".join(chr(c) for c in range(65+n-i, 65+n)))
+
+
 def main():
     # n = int(input("Enter n: "))
     n = 5
-    pattern15(n)
+    pattern18(n)
 
 
 if __name__ == "__main__":
