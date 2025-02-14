@@ -182,10 +182,17 @@ def pattern19(n):
         print("*" * i + " " * (2*(n-i)) + "*" * i)
 
 
+def pattern20(n):
+    for i in range(1, n*2):
+        stars = i if i < n else (2 * n - i)
+        spaces = 2 * (n - stars)
+        print("*" * stars + " " * spaces + "*" * stars)
+
+
 def main():
     # n = int(input("Enter n: "))
     n = 5
-    pattern19(n)
+    pattern20(n)
 
 
 if __name__ == "__main__":
