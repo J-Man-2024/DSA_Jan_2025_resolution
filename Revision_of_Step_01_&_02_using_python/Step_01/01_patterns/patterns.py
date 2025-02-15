@@ -189,10 +189,26 @@ def pattern20(n):
         print("*" * stars + " " * spaces + "*" * stars)
 
 
+def pattern21Verbose(n):
+    for i in range(n):
+        for j in range(n):
+            if (i == 0 or j == 0 or i == n-1 or j == n-1):
+                print("*", end="")
+            else:
+                print(" ", end="")
+        print()
+
+
+def pattern21Concise(n):
+    for i in range(n):
+        print("".join("*" if i in {0, n-1}
+              or j in {0, n-1} else " " for j in range(n)))
+
+
 def main():
     # n = int(input("Enter n: "))
     n = 5
-    pattern20(n)
+    pattern21Concise(n)
 
 
 if __name__ == "__main__":
