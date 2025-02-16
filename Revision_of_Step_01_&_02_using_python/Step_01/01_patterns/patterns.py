@@ -205,10 +205,17 @@ def pattern21Concise(n):
               or j in {0, n-1} else " " for j in range(n)))
 
 
+def pattern22(n):
+    start = 2 * n - 1
+    for i in range(start):
+        print(" ".join(str(n - min(i, j, (start - 1 - i), (start - 1 - j)))
+              for j in range(start)))
+
+
 def main():
     # n = int(input("Enter n: "))
-    n = 5
-    pattern21Concise(n)
+    n = 3
+    pattern22(n)
 
 
 if __name__ == "__main__":
