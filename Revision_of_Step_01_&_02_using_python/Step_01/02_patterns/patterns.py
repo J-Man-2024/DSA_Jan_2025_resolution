@@ -62,10 +62,27 @@ def pattern13Concise(n):
     for i in range(1,n+1):
         print(" ".join(str(count+j) for j in range(i)))
         count += i
+
+def pattern14(n):
+    for i in range(1,n+1):
+        print("".join(chr(c) for c in range(65,65+i)))
+
+def pattern15(n):
+    for i in range(n,0,-1):
+        print("".join(chr(c) for c in range(65, 65+i)))
+
+def pattern16(n):
+    for i in range(1, n+1):
+        print(chr(65+i-1)*i)
+
+def pattern17(n):
+    for i in range(1,n+1):
+        print(" " * (n-i) + "".join(chr(c) for c in range(65,65+i)) + "".join(chr(c) for c in range(64+i-1,64,-1)))
+
+######################
 def main():
     n = 5
-    pattern13Concise(n)
-
+    pattern17(n)
 
 if __name__ == "__main__":
     main()
