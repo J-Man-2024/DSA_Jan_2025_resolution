@@ -31,10 +31,22 @@ def problem03(n):
         return True
     else:
         return False
+
+def problem04BruteForce(n1,n2):
+    n = min(n1,n2)
+    gcd = 1
+
+    for i in range(1,n+1):
+        if n1 % i == 0 and n2 % i == 0:
+            gcd = i
+    return gcd
+    
+
 ##################
 def main():
-    n = 4554
-    print(problem03(n))
+    n1 = 9
+    n2 = 12
+    print(problem04BruteForce(n1,n2))
 
 if __name__ == "__main__":
     main()
