@@ -41,12 +41,31 @@ def problem04BruteForce(n1,n2):
             gcd = i
     return gcd
     
+def problem04BetterApproach(n1,n2):
+    n = min(n1,n2)
+    for i in range(n, 0 ,-1):
+        if n1 % i == 0 and n2 % i == 0:
+           return i 
 
+def problem04Optimized(n1,n2):
+    a = n1
+    b = n2
+    
+    while a > 0 and b > 0:
+        if a > b:
+            a = a % b
+        elif b > a:
+            b = b % a
+
+    if a == 0:
+        return b
+
+    return a
 ##################
 def main():
     n1 = 9
     n2 = 12
-    print(problem04BruteForce(n1,n2))
+    print(problem04Optimized(n1,n2))
 
 if __name__ == "__main__":
     main()
