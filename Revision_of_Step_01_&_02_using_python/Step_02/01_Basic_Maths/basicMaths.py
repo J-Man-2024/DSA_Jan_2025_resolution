@@ -61,11 +61,28 @@ def problem04Optimized(n1,n2):
         return b
 
     return a
+
+def problem05(n):
+    cpy = n
+    length = len(str(abs(n)))
+    sum = 0
+    
+    while n:
+        lastDigit = n % 10
+        sum = (lastDigit ** length) + sum
+        n = n // 10
+
+    print(sum)
+    print()
+    
+    if sum == cpy:
+        return True
+    else:
+        return False
 ##################
 def main():
-    n1 = 9
-    n2 = 12
-    print(problem04Optimized(n1,n2))
+    n = 371
+    print(problem05(n))
 
 if __name__ == "__main__":
     main()
