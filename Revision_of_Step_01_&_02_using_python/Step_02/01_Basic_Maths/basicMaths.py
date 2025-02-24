@@ -79,10 +79,27 @@ def problem05(n):
         return True
     else:
         return False
+
+def problem06BruteForce(n):
+    divisors=[]
+    for i in range(1,n+1):
+        if n % i == 0:
+            divisors.append(i)
+    return divisors
+
+def problem06Optimized(n):
+    divisors=[]
+    for i in range(1, int(n ** 0.5) + 1):
+        if n % i == 0:
+            divisors.append(i)
+            if i != n // i:
+                divisors.append(n // i)
+    return sorted(divisors)
+
 ##################
 def main():
-    n = 371
-    print(problem05(n))
+    n = 36
+    print(problem06Optimized(n))
 
 if __name__ == "__main__":
     main()
