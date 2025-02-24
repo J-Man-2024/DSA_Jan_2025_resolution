@@ -45,7 +45,7 @@ def problem04BetterApproach(n1,n2):
     n = min(n1,n2)
     for i in range(n, 0 ,-1):
         if n1 % i == 0 and n2 % i == 0:
-           return i 
+           return i
 
 def problem04Optimized(n1,n2):
     a = n1
@@ -96,10 +96,34 @@ def problem06Optimized(n):
                 divisors.append(n // i)
     return sorted(divisors)
 
+def problem07BruteForce(n):
+    if n < 2:
+        return False
+
+    count = 0
+    for i in range(1,n+1):
+        if n % i == 0:
+            count+=1 
+            if n // i != i:
+                count+=1
+
+        return count == 2
+
+def problem07Optimized(n):
+    if n < 2:
+        return False
+    count = 0
+    for i in range(1, int(math.sqrt(n)) + 1):
+        if n % i == 0:
+            count+=1
+            if n // i != i:
+                count+=1
+
+    return count == 2
 ##################
 def main():
-    n = 36
-    print(problem06Optimized(n))
+    n = 1483
+    print(problem07Optimized(n))
 
 if __name__ == "__main__":
     main()
