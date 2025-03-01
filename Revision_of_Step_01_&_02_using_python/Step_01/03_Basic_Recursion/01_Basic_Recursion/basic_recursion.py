@@ -38,11 +38,16 @@ def problem07(s, start, end):
     if s[start] != s[end]:
         return False
     return problem07(s, start+1, end-1)
+
+def problem08(n):
+    if n <= 1:
+        return n
+    return problem08(n - 1) + problem08(n - 2)
+
 ###################
 def main():
-    s = "ABCDCBA"
-    n = len(s)
-    print(problem07(s, 0, n-1))
+    n = 5
+    print(" ".join(str(problem08(i)) for i in range(n+1)))
 
 ###################
 if __name__ == "__main__":
