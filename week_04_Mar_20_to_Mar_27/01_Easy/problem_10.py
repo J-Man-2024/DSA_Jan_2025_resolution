@@ -27,13 +27,26 @@ def missing_number_better(arr):
 
 def missing_number_best(arr):
     n = len(arr) + 1
-    expected_total = (n * (n + 1) // 2)
+    expected_total = (n * (n + 1)) // 2
     current_total = sum(arr)
     return expected_total - current_total 
 
+# It takes O(n) time and O(1) extra space
+
+def missing_number_best_alt(arr):
+    n = len(arr) + 1
+    xor_all = 0
+    xor_arr = 0
+
+    for i in range(1, n + 1):
+        xor_all ^= i
+    for num in arr:
+        xor_arr ^= num
+    return xor_all ^ xor_arr
+# It takes O(n) time and O(1) extra space
 def main():
     arr = [1, 2, 4, 5]
-    new_arr = missing_number_best(arr)
+    new_arr = missing_number_best_alt(arr)
     print(f"Missing number in {arr} is : {new_arr}")
 if __name__ == "__main__":
     main()
