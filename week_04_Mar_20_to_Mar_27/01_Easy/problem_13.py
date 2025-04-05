@@ -15,15 +15,14 @@ def sum_of_max_sub_arr_brute(arr, k):
 def sum_of_max_sub_arr_better(arr, k):
     prefix_sum = 0
     max_len = 0
-    prefix_map = {}
+    prefix_hashmap = {0: -1}
 
     for i in range(len(arr)):
         prefix_sum += arr[i]
-        
-        if prefix_sum - k in prefix_map:
-            max_len = max(max_len, i - prefix_map[prefix_sum - k])
-        if prefix_sum not in prefix_map:
-            prefix_map[prefix_sum] = i
+        if prefix_sum - k in prefix_hashmap:
+            max_len = max(max_len, i - prefix_hashmap[prefix_sum - k])
+        if prefix_sum not in prefix_hashmap:
+            prefix_hashmap[prefix_sum] = i
     return max_len
 def main():
     arr = [9, 1, 5, 3, 2]
