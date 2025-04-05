@@ -38,6 +38,7 @@ def sum_of_max_sub_arr_best(arr, k):
         if curr_sum == k:
             max_len = max(max_len, right - left + 1)
     return max_len
+# It takes O(2n) and O(1) only for positives.
 def main():
     arr = [9, 1, 5, 3, 2]
     k = 10
