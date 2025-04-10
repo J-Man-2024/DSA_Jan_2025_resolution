@@ -64,8 +64,40 @@ def pattern_15(n):
     ch = ord('A')
     for i in range(n):
         print("".join(chr(c) for c in range(ch, n - i + ch)))
+
+def pattern_16(n):
+    ch = ord('A')
+    for i in range(n):
+        print("".join(chr(ch + i)) * (i + 1))
+
+def pattern_17(n):
+    ch = ord('A')
+    for i in range(n):
+        print("".join(" ") * (n - i - 1) + "".join(chr(c) for c in range(ch, ch + i + 1)) + "".join(chr(c) for c in range(ch + i - 1, ch - 1, -1)))
+
+def pattern_18(n):
+    ch = ord('E')
+    for i in range(n):
+        print(" ".join(chr(c) for c in range(ch - i, ch + 1,)))
+
+def pattern_19(n):
+    for i in range(n):
+        print("".join("*") * (n - i) + "".join(" ") * (i * 2) + "".join("*") * (n - i))
+    for i in range(1, n + 1):
+        print("".join("*") * i + "".join(" ") * (2 * (n - i)) + "".join("*") * i)
+
+def pattern_20(n):
+    for i in range(1, n * 2):
+        stars = i if i < n else 2 * n - i
+        spaces = 2 * (n - stars)
+        print("".join("*") * stars + "".join(" ") * spaces + "".join("*") * stars)
+
+def pattern_21(n):
+    for i in range(n):
+        print("".join("*" if i in {0, n - 1} or j in {0, n - 1} else " " for j in range(n)))
+        
 def main():
     n = 5    
-    pattern_15(n)
+    pattern_21(n)
 if __name__ == "__main__":
     main()
