@@ -95,9 +95,14 @@ def pattern_20(n):
 def pattern_21(n):
     for i in range(n):
         print("".join("*" if i in {0, n - 1} or j in {0, n - 1} else " " for j in range(n)))
+
+def pattern_22(n):
+    start = n * 2 - 1
+    for i in range(start):
+        print("".join(str(n - min(i, j, start - i - 1, start - j - 1))for j in range(start)))
         
 def main():
-    n = 5    
-    pattern_21(n)
+    n = 4    
+    pattern_22(n)
 if __name__ == "__main__":
     main()
