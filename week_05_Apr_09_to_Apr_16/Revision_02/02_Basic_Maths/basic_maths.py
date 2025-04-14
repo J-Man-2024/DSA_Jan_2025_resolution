@@ -57,12 +57,40 @@ def gcd_optimal(n1, n2):
     if n1 == 0:
         return n2
     return n1
-
 # It takes O(min(n1, n2)) time and O(1) extra space
-def main():
-    n1 = 9
-    n2 = 12
-    print(gcd_optimal(n1, n2))
 
+def armstrong_brute(n):
+    length = len(str(n))
+    temp = n
+    sum = 0
+    while n > 0:
+        ld = n % 10
+        sum += pow(ld,length)
+        n //= 10
+    if sum == temp:
+        return True
+    return False
+# It takes O(logbase10n + 1) time and O(1) extra space
+
+def all_divisors_brute(n):
+    temp = []
+    for i in range(1, n + 1):
+        if n % i == 0:
+            temp.append(i)
+    return temp
+# It takes O(n) time and O(n) extra space
+
+def all_divisors_optimal(n):
+    temp = []
+    for i in range(1, int(math.sqrt(n)) + 1):
+        if n % i == 0:
+            temp.append(i)
+            if n // i != i:
+                temp.append(n // i)
+    return sorted(temp)
+# It takes O(sqrt(n)) if unsorted otherwise O(sqrt(n)logn) and O(sqrt(n))
+def main():
+    n = 36
+    print(all_divisors_optimal(n))
 if __name__ == "__main__":
     main()
