@@ -89,8 +89,29 @@ def all_divisors_optimal(n):
                 temp.append(n // i)
     return sorted(temp)
 # It takes O(sqrt(n)) if unsorted otherwise O(sqrt(n)logn) and O(sqrt(n))
+
+def prime_or_not_brute(n):
+    if n < 2:
+        return False
+    count = 0 
+    for i in range(1, n + 1):
+        if n % i == 0:
+            count += 1
+    if count == 2:
+        return True
+    return False
+# It takes O(n) time and O(1) extra space
+
+def prime_or_not_optimal(n):
+    if n < 2:
+        return False
+    for i in range(2, int(math.sqrt(n)) + 1):
+        if n % i == 0:
+            return False
+    return True
+# It takes O(sqrt(n)) time and O(1)
 def main():
     n = 36
-    print(all_divisors_optimal(n))
+    print(prime_or_not_optimal(n))
 if __name__ == "__main__":
     main()
