@@ -32,11 +32,13 @@ def palindrome_or_not_string(arr, start, end):
     if arr[start] != arr[end]:
         return False
     return palindrome_or_not_string(arr, start + 1, end - 1)
-def main():
-    arr = "ABCDEBA"
-    n = len(arr)
-    print(palindrome_or_not_string(arr, 0, n - 1))
-    
 
+def fibo(n):
+    if n <= 1:
+        return n
+    return fibo(n - 1) + fibo(n - 2)
+def main():
+    n = 5
+    print(" ".join(str(fibo(i)) for i in range(n + 1)))
 if __name__ == "__main__":
     main()
