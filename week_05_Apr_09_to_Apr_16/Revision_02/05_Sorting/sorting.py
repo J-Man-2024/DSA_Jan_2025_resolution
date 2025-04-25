@@ -25,10 +25,38 @@ def insertion_sort(arr, n):
             j -= 1
         arr[j + 1] = key
 # It takes O(n^2) time and O(1) extra space
+def merge(arr, start, mid, end):
+    temp = []
+    left_index = start
+    right_index = mid + 1
+
+    while left_index <= mid and right_index <= end:
+        if arr[left_index] <= arr[right_index]:
+            temp.append(arr[left_index])
+            left_index += 1
+        else:
+            temp.append(arr[right_index])
+            right_index += 1
+    while left_index <= mid:
+        temp.append(arr[left_index])
+        left_index += 1
+    while right_index <= mid:
+        temp.append(arr[right_index])
+        right_index += 1
+    for i in range(len(temp)):
+        arr[start + i] = temp[i]
+    
+def merge_sort(arr, start, end):
+    if start < end:
+        pi = start + (end - start) // 2
+        merge_sort(arr, start, pi)
+        merge_sort(arr, pi + 1, end)
+        merge(arr, start, pi, end)
+# It takes O(nlogn) time and O(n) extra space
 def main():
     arr = [13, 46, 24, 52, 20, 9]
     n = len(arr)
-    insertion_sort(arr, n)
+    merge_sort(arr, 0, n - 1)
     print(arr)
 if __name__ == "__main__":
     main()
