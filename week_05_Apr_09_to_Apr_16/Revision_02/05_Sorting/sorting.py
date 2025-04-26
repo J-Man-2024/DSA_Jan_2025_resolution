@@ -40,7 +40,7 @@ def merge(arr, start, mid, end):
     while left_index <= mid:
         temp.append(arr[left_index])
         left_index += 1
-    while right_index <= mid:
+    while right_index <= end:
         temp.append(arr[right_index])
         right_index += 1
     for i in range(len(temp)):
@@ -53,10 +53,28 @@ def merge_sort(arr, start, end):
         merge_sort(arr, pi + 1, end)
         merge(arr, start, pi, end)
 # It takes O(nlogn) time and O(n) extra space
+def recursive_bubble_sort(arr, n):
+    if n == 1:
+        return
+    for i in range(n - 1):
+        if arr[i] > arr[i + 1]:
+            arr[i], arr[i + 1] = arr[i + 1], arr[i]
+    recursive_bubble_sort(arr, n - 1)
+#   It takes O(n^2) and O(n) extra space
+def recursive_insertion_sort(arr, n):
+    if n <= 1:
+        return
+    recursive_insertion_sort(arr, n - 1)
+    j = n - 2
+    key = arr[n - 1]
+    while j >= 0 and arr[j] > key:
+        arr[j + 1] = arr[j]
+        j -= 1
+    arr[j + 1] = key
 def main():
     arr = [13, 46, 24, 52, 20, 9]
     n = len(arr)
-    merge_sort(arr, 0, n - 1)
+    recursive_insertion_sort(arr, n)
     print(arr)
 if __name__ == "__main__":
     main()
