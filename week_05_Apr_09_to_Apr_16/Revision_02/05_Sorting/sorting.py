@@ -71,10 +71,31 @@ def recursive_insertion_sort(arr, n):
         arr[j + 1] = arr[j]
         j -= 1
     arr[j + 1] = key
+# It takes O(n^2) time and O(n) extra space
+def partition_index(arr, start, end):
+    pivot = arr[start]
+    start_index = start
+    end_index = end
+    while start_index < end_index:
+        while start_index <= end and arr[start_index] <= pivot:
+            start_index += 1
+        while end_index >= start and arr[end_index] > pivot:
+            end_index -= 1
+        if start_index < end_index:
+            arr[start_index], arr[end_index] = arr[end_index], arr[start_index]
+    arr[start], arr[end_index] = arr[end_index], arr[start]
+    return end_index
+
+def quick_sort(arr, start, end):
+    if start < end:
+        pi = partition_index(arr, start, end)
+        quick_sort(arr, start, pi - 1)
+        quick_sort(arr, pi + 1, end)
+# It takes O(nlogn) time and O(1) extra space
 def main():
     arr = [13, 46, 24, 52, 20, 9]
     n = len(arr)
-    recursive_insertion_sort(arr, n)
+    quick_sort(arr, 0, n - 1)
     print(arr)
 if __name__ == "__main__":
     main()
