@@ -20,9 +20,19 @@ def union_of_arrays_better(arr1, arr2):
         result.append(num)
     return result
 # It takes O(n + m) time and O(n + m) space
+def union_of_arrays_better_alt(arr1, arr2):
+#        using set
+    s = set()
+    result = []
+    for num in arr1 + arr2:
+        if num not in s:
+            s.add(num)
+            result.append(num)
+    return result
+# It takes O(n + m) time and O(n + m) space
 def main():
     arr1 = [1,2,3,4,5]
     arr2 = [2,3,4,4,5]
-    print(union_of_arrays_better(arr1, arr2))
+    print(union_of_arrays_better_alt(arr1, arr2))
 if __name__ == "__main__":
     main()
